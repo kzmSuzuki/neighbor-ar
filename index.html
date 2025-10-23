@@ -84,6 +84,25 @@
           gltf-model="./models/3.glb"
         ></a-entity>
       </a-marker>
+
+      <a-marker type="pattern" url="./marker/chips.patt">
+        <a-text
+          value="「一緒に食べてくれない？」と買ってすぐのものを分けてくれる隣人"
+          font="./font/4-msdf.json"
+          font-image="./font/4-msdf.png"
+          position="0 3 -1"
+          rotation="-90 0 0"
+          align="center"
+          scale="1 1 1"
+          negate="false"
+        ></a-text>
+        <a-entity
+          position="0 1 5"
+          rotation="-90 0 0"
+          scale="0.5 0.5 0.5"
+          gltf-model="./models/4.glb"
+        ></a-entity>
+      </a-marker>
     </a-scene>
 
     <script src="app.js"></script>
