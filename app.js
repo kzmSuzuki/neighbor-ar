@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const instructions = document.getElementById("instructions");
   const closeInstructionsBtn = document.getElementById("close-instructions");
   const toggleModelBtn = document.getElementById("toggle-model");
+  const tapTooltip = document.getElementById("tap-tooltip");
 
   // ARシーンが読み込まれたらローディング画面を非表示
   const scene = document.querySelector("a-scene");
@@ -22,22 +23,28 @@ document.addEventListener("DOMContentLoaded", function () {
     );
   });
 
-  // マーカーが検出されたときの処理
-  const marker = document.querySelector("a-marker");
-  marker.addEventListener("markerFound", function () {
-    console.log("マーカーを検出しました");
-    // マーカー検出時に追加のアニメーションなどを実装可能
-  });
+  // すべてのマーカーにイベントリスナーを追加
+  const markers = document.querySelectorAll(".ar-marker");
+  markers.forEach(function (marker) {
+    // マーカーが検出されたときの処理
+    marker.addEventListener("markerFound", function () {
+      console.log("マーカーを検出しました");
+      tapTooltip.classList.add("show");
+    });
 
-  // マーカーを見失ったときの処理
-  marker.addEventListener("markerLost", function () {
-    console.log("マーカーを見失いました");
+    // マーカーを見失ったときの処理
+    marker.addEventListener("markerLost", function () {
+      console.log("マーカーを見失いました");
+      tapTooltip.classList.remove("show");
+    });
   });
 
   // 説明を閉じるボタンの処理
-  closeInstructionsBtn.addEventListener("click", function () {
-    instructions.classList.add("hidden");
-  });
+  if (closeInstructionsBtn) {
+    closeInstructionsBtn.addEventListener("click", function () {
+      instructions.classList.add("hidden");
+    });
+  }
 
   // オフライン検出
   window.addEventListener("online", function () {

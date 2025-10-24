@@ -34,7 +34,7 @@
         raycaster="objects: .raycastable"
       ></a-entity>
 
-      <a-marker type="pattern" url="./marker/trash.patt">
+      <a-marker type="pattern" url="./marker/trash.patt" class="ar-marker">
         <a-entity
           position="0 1 0"
           hit-box
@@ -59,7 +59,7 @@
         ></a-entity>
       </a-marker>
 
-      <a-marker type="pattern" url="./marker/aircon.patt">
+      <a-marker type="pattern" url="./marker/aircon.patt" class="ar-marker">
         <a-entity
           position="0 1 0"
           hit-box
@@ -83,7 +83,7 @@
         ></a-entity>
       </a-marker>
 
-      <a-marker type="pattern" url="./marker/phone.patt">
+      <a-marker type="pattern" url="./marker/phone.patt" class="ar-marker">
         <a-entity
           position="0 1 0"
           hit-box
@@ -107,7 +107,7 @@
         ></a-entity>
       </a-marker>
 
-      <a-marker type="pattern" url="./marker/chips.patt">
+      <a-marker type="pattern" url="./marker/chips.patt" class="ar-marker">
         <a-entity
           position="0 1 0"
           hit-box
@@ -131,7 +131,7 @@
         ></a-entity>
       </a-marker>
 
-      <a-marker type="pattern" url="./marker/dish.patt">
+      <a-marker type="pattern" url="./marker/dish.patt" class="ar-marker">
         <a-entity
           position="0 1 0"
           hit-box
@@ -155,7 +155,7 @@
         ></a-entity>
       </a-marker>
 
-      <a-marker type="pattern" url="./marker/eye.patt">
+      <a-marker type="pattern" url="./marker/eye.patt" class="ar-marker">
         <a-entity
           position="0 1 0"
           hit-box
@@ -177,7 +177,7 @@
           gltf-model="./models/6.glb"
         ></a-entity>
       </a-marker>
-      <a-marker type="pattern" url="./marker/slipper.patt">
+      <a-marker type="pattern" url="./marker/slipper.patt" class="ar-marker">
         <a-entity
           position="0 1 0"
           hit-box
@@ -201,7 +201,7 @@
         ></a-entity>
       </a-marker>
 
-      <a-marker type="pattern" url="./marker/chair.patt">
+      <a-marker type="pattern" url="./marker/chair.patt" class="ar-marker">
         <a-entity
           position="0 1 0"
           hit-box
@@ -225,7 +225,7 @@
         ></a-entity>
       </a-marker>
 
-      <a-marker type="pattern" url="./marker/recycle.patt">
+      <a-marker type="pattern" url="./marker/recycle.patt" class="ar-marker">
         <a-entity
           position="0 1 0"
           hit-box
@@ -249,7 +249,7 @@
         ></a-entity>
       </a-marker>
 
-      <a-marker type="pattern" url="./marker/heart.patt">
+      <a-marker type="pattern" url="./marker/heart.patt" class="ar-marker">
         <a-entity
           position="0 1 0"
           hit-box
@@ -273,6 +273,14 @@
         ></a-entity>
       </a-marker>
     </a-scene>
+
+    <!-- 吹き出し -->
+    <div id="tap-tooltip" class="tap-tooltip">
+      <div class="tooltip-content">
+        タップしよう！
+        <div class="tooltip-arrow"></div>
+      </div>
+    </div>
 
     <!-- モーダル -->
     <div id="modal" class="modal">
@@ -359,6 +367,29 @@
           modal.style.display = "none";
         }
       };
+
+      // ARマーカー検出時のイベント
+      const markers = document.querySelectorAll(".ar-marker");
+
+      markers.forEach((marker) => {
+        marker.addEventListener("markerFound", () => {
+          const tooltip = document.getElementById("tap-tooltip");
+          tooltip.style.display = "block";
+
+          setTimeout(() => {
+            tooltip.style.opacity = "1";
+          }, 10);
+        });
+
+        marker.addEventListener("markerLost", () => {
+          const tooltip = document.getElementById("tap-tooltip");
+          tooltip.style.opacity = "0";
+
+          setTimeout(() => {
+            tooltip.style.display = "none";
+          }, 300);
+        });
+      });
     </script>
   </body>
 </html>

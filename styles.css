@@ -209,3 +209,51 @@ body {
 .close:focus {
   color: #000;
 }
+
+/* タップ吹き出し */
+.tap-tooltip {
+  display: none;
+  position: fixed;
+  bottom: 30%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  animation: bounce 1s ease-in-out infinite;
+}
+
+.tap-tooltip.show {
+  display: block;
+}
+
+.tooltip-content {
+  background-color: #3498db;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 20px;
+  font-size: 16px;
+  font-weight: bold;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  position: relative;
+  white-space: nowrap;
+}
+
+.tooltip-arrow {
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid #3498db;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(-10px);
+  }
+}
