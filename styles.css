@@ -214,7 +214,7 @@ body {
 .tap-tooltip {
   display: none;
   position: fixed;
-  bottom: 30%;
+  top: 20%;
   left: 50%;
   transform: translateX(-50%);
   z-index: 100;
@@ -226,7 +226,7 @@ body {
 }
 
 .tooltip-content {
-  background-color: #3498db;
+  background-color: #1b8465;
   color: white;
   padding: 12px 20px;
   border-radius: 20px;
