@@ -18,6 +18,18 @@
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
   </head>
   <body>
+    <!-- スプラッシュ画面 -->
+    <div id="splash-screen" class="splash-screen">
+      <div class="splash-content">
+        <img
+          src="./images/splash.png"
+          alt="スプラッシュ画像"
+          class="splash-image"
+        />
+        <div class="splash-loader"></div>
+      </div>
+    </div>
+
     <a-scene
       embedded
       arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;"
@@ -299,6 +311,18 @@
 
     <script src="app.js"></script>
     <script>
+      // スプラッシュ画面を非表示にする
+      window.addEventListener("load", () => {
+        setTimeout(() => {
+          const splashScreen = document.getElementById("splash-screen");
+          splashScreen.classList.add("fade-out");
+
+          setTimeout(() => {
+            splashScreen.style.display = "none";
+          }, 500);
+        }, 2000); // 2秒間表示
+      });
+
       // サービスワーカーの登録と更新
       if ("serviceWorker" in navigator) {
         window.addEventListener("load", () => {
