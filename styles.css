@@ -124,7 +124,7 @@ body {
   display: block;
 }
 
-.modal-content {
+#modal-content {
   background-color: #fefefe;
   margin: 15% auto;
   padding: 30px;
