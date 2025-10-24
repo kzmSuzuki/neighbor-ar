@@ -148,11 +148,20 @@ body {
 }
 
 @keyframes floatUp {
-  from {
+  0% {
     opacity: 0;
-    transform: translateY(50px) scale(0.9);
+    transform: translateY(50px) scale(0.8);
   }
-  to {
+  50% {
+    transform: translateY(-10px) scale(1.05);
+  }
+  70% {
+    transform: translateY(5px) scale(0.98);
+  }
+  85% {
+    transform: translateY(-3px) scale(1.02);
+  }
+  100% {
     opacity: 1;
     transform: translateY(0) scale(1);
   }
