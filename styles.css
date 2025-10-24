@@ -139,19 +139,19 @@ body {
 }
 
 #modal-message {
-  font-size: 14px;
+  font-size: 18px;
   font-weight: bold;
-  color: #333;
+  color: #1b8465;
   margin: 0;
 }
 
 .modal-subtitle {
-  font-size: 10px;
-  color: #666;
-  margin: 5px 0 0;
+  font-size: 14px;
+  color: #333;
+  margin: 5px 0;
 }
 .modal-subtext {
-  font-size: 8px;
+  font-size: 10px;
   color: #999;
   margin-top: 15px;
 }
