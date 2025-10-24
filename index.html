@@ -294,6 +294,17 @@
       </div>
     </div>
 
+    <!-- 説明モーダル -->
+    <div id="info-modal" class="modal info-modal">
+      <div class="modal-content info-content">
+        <h2 class="info-title">私の自慢の隣人展<br>ARアプリ</h2>
+        <img src="./images/ar-marker-sample.png" alt="ARマーカーサンプル" class="marker-sample" />
+        <p class="info-text">校舎内に設置されたARマーカーにかざすと、隣人くんに出会えます。</p>
+        <p class="info-text">隣人くんのスクショを3種類集めるとシールがもらえるよ。詳しくは黄色い隣人くんTシャツを着たスタッフまで!</p>
+        <button id="info-ok-btn" class="info-ok-btn">OK</button>
+      </div>
+    </div>
+
     <!-- モーダル -->
     <div id="modal" class="modal">
       <div class="modal-content">
@@ -311,7 +322,7 @@
 
     <script src="app.js"></script>
     <script>
-      // スプラッシュ画面を非表示にする
+      // スプラッシュ画面を非表示にして説明モーダルを表示
       window.addEventListener("load", () => {
         setTimeout(() => {
           const splashScreen = document.getElementById("splash-screen");
@@ -319,9 +330,19 @@
 
           setTimeout(() => {
             splashScreen.style.display = "none";
+            // 説明モーダルを表示
+            const infoModal = document.getElementById("info-modal");
+            infoModal.style.display = "block";
           }, 500);
         }, 2000); // 2秒間表示
       });
+
+      // 説明モーダルのOKボタン
+      const infoOkBtn = document.getElementById("info-ok-btn");
+      infoOkBtn.onclick = function () {
+        const infoModal = document.getElementById("info-modal");
+        infoModal.style.display = "none";
+      };
 
       // サービスワーカーの登録と更新
       if ("serviceWorker" in navigator) {
