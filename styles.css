@@ -126,7 +126,7 @@ body {
 
 #modal-content {
   background-color: #fefefe;
-  margin: 15% auto;
+  margin: 50% auto;
   padding: 30px;
   border: 1px solid #888;
   border-radius: 10px;
@@ -180,10 +180,10 @@ body {
   object-fit: contain;
 }
 
-.modal-content p#modal-message {
+#modal-message {
   font-size: 18px;
   font-weight: bold;
-  color: #333;
+  color: #1b8465;
   margin: 10px 0;
   line-height: 1.5;
 }
