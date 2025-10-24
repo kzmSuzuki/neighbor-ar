@@ -27,7 +27,7 @@
       <!-- カメラ -->
       <a-entity camera></a-entity>
       <a-light type="ambient" color="#ffffff"></a-light>
-      <!-- デフォルトの3Dモデル（赤い箱） -->
+
       <a-marker type="pattern" url="./marker/trash.patt">
         <a-entity
           position="0 1 5"
@@ -35,6 +35,24 @@
           scale="0.5 0.5 0.5"
           gltf-model="./models/1.glb"
         ></a-entity>
+        <a-entity position="0 -0.05 0" hit-box>
+          <a-entity
+            class="raycastable"
+            geometry="primitive:cylinder"
+            material="color:red; opacity: 0.5"
+            scale="0.2 0.2 0.2"
+            position="0 0.1 0"
+            visible="true"
+          ></a-entity>
+          <a-entity
+            class="raycastable"
+            geometry="primitive:box"
+            material="color:blue; opacity: 0.5"
+            scale="0.2 0.25 0.1"
+            position="0 0 0.1"
+            visible="true"
+          ></a-entity>
+        </a-entity>
       </a-marker>
 
       <a-marker type="pattern" url="./marker/aircon.patt">
@@ -155,6 +173,14 @@
             );
         });
       }
+
+      AFRAME.registerComponent("hit-box", {
+        init: function () {
+          this.el.addEventListener("click", () => {
+            alert("clicked!");
+          });
+        },
+      });
     </script>
   </body>
 </html>
